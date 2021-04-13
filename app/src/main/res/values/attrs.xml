@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="attr_custom_app">
+        <attr name="color_header_footer_background" format="color" />
+        <attr name="color_selected_background" format="color" />
+        <attr name="color_extra_background" format="color" />
+        <attr name="color_title_text" format="color"/>
+    </declare-styleable>
+</resources>

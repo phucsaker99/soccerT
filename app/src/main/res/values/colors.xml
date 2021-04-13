@@ -5,4 +5,12 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <color name="color_aqua_forest">#FF70A976</color>
+    <color name="color_san_juan">#FF294B6A</color>
+    <color name="color_ebony_clay">#FF29263E</color>
+
+    <color name="color_bouquet">#FFA9709A</color>
+    <color name="color_dallas">#FF6A5029</color>
+    <color name="color_primrose">#FFD4EF95</color>
 </resources>
