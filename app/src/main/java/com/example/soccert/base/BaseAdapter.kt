@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.ListAdapter
 
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>>(
     diffUtilItem: DiffUtil.ItemCallback<T>
-) : ListAdapter<T, VH>(diffUtilItem), BindDataAdapter<List<T>> {
+) : ListAdapter<T, VH>(diffUtilItem), BindDataAdapter<T> {
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.onBind(getItem(position))

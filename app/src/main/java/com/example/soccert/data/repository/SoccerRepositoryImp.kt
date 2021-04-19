@@ -1,5 +1,7 @@
 package com.example.soccert.data.repository
 
+import com.example.soccert.data.model.Event
+import com.example.soccert.data.model.Team
 import com.example.soccert.data.source.SoccerDataSource
 
 class SoccerRepositoryImp(
@@ -23,4 +25,20 @@ class SoccerRepositoryImp(
         remote.getEvents(leagueID, from, to)
 
     override fun getMatch(matchID: Int) = remote.getMatch(matchID)
+
+    override fun getTeamsFavorite() = local.getTeamsFavorite()
+
+    override fun isTeamFavorite(teamKey: Int) = local.isTeamFavorite(teamKey)
+
+    override fun insertTeamFavorite(team: Team) = local.insertTeamFavorite(team)
+
+    override fun deleteTeamFavorite(team: Team) = local.deleteTeamFavorite(team)
+
+    override fun getEventNotifications() = local.getEventNotifications()
+
+    override fun getItemEventNotification(matchID: Int) = local.getItemEventNotification(matchID)
+
+    override fun insertEventNotification(event: Event) = local.insertEventNotification(event)
+
+    override fun deleteEventNotification(event: Event) = local.deleteEventNotification(event)
 }
