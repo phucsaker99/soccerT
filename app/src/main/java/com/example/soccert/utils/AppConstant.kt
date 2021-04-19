@@ -34,3 +34,12 @@ object KoinConfig {
     const val SOCCER_SERVICE = "soccerService"
     const val SEARCH_SERVICE = "searchService"
 }
+
+object SharePreferencesConst {
+    const val PREFS_NAME = "SOCCERT_PREFS"
+
+    const val PREFS_LANGUAGE_KEY = "language_key"
+    const val LANGUAGE_VIETNAMESE = "vi"
+    const val LANGUAGE_ENGLISH = "en"
+    const val PREFS_COMPETITION_KEY = "competition_key"
+}
