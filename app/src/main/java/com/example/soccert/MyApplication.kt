@@ -17,7 +17,8 @@ class MyApplication : Application() {
                     dbModule,
                     soccerRepoModule,
                     searchNewsRepoModule,
-                    prefsRepoModule
+                    prefsRepoModule,
+                    viewModelModule
                 )
             )
         }
