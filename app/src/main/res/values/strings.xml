@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">SoccerT</string>
-    <string name="error_default">Error!</string>
+
     <string name="title_home">Home</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_news">News</string>
     <string name="title_more">More</string>
+    <string name="title_choose_country">Choose a country</string>
+
+    <string name="text_popular_leagues">Popular leagues</string>
+
+    <string name="error_default">Error!</string>
     <string name="error_convert_type">Error convert data type!</string>
 </resources>

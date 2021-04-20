@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.favorite.FavoriteFragment">
+
+        <TextView
+            android:id="@+id/textChooseCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_16"
+            android:drawablePadding="@dimen/dp_8"
+            android:text="@string/title_choose_country"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerCountries"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textChooseCountry"
+            app:spanCount="3"
+            tools:listitem="@layout/item_country" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPopularLeagues"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_24"
+            android:layout_marginEnd="@dimen/dp_16"
+            app:cardCornerRadius="@dimen/dp_16"
+            app:cardElevation="@dimen/dp_4"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerCountries">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.7"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_popular_soccer" />
+
+            <TextView
+                android:id="@+id/textPopularLeagues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/archivo_black"
+                android:text="@string/text_popular_leagues"
+                android:textColor="?attr/color_title_text"
+                android:textSize="@dimen/sp_26"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
