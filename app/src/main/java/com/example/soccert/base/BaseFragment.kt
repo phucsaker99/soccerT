@@ -39,9 +39,12 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
         viewModel.error.observe(viewLifecycleOwner, Observer {
             view.context.showToast(ToastType.Error, getString(R.string.error_default))
         })
+        initViews()
         initData()
         initActions()
     }
+
+    protected abstract fun initViews()
 
     protected abstract fun initData()
 
