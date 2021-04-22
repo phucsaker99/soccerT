@@ -10,8 +10,7 @@ class AppPreferencesRepositoryImp(
 
     override fun getLanguage() = local.getLanguage()
 
-    override fun setCompetitionType(competitionValue: Boolean) =
-        local.setCompetitionType(competitionValue)
+    override fun setCountryID(countryID: String) = local.setCountryID(countryID)
 
-    override fun getCompetitionType() = local.getCompetitionType()
+    override fun getCountryID() = local.getCountryID()
 }

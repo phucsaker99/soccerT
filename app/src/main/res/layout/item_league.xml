@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <View
-        android:id="@+id/viewSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/color_header_footer_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <ImageView
-        android:id="@+id/imageLeagueLogo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_8"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:contentDescription="@null"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/viewSpinner"
-        app:layout_constraintDimensionRatio="w, 1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewSpinner"
-        tools:srcCompat="@tools:sample/avatars" />
+        <variable
+            name="competition"
+            type="com.example.soccert.data.model.Competition" />
+    </data>
 
-    <TextView
-        android:id="@+id/textLeagueName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_8"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:gravity="center_vertical"
-        android:textColor="?attr/color_title_text"
-        android:textSize="@dimen/sp_22"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewSpinner"
-        app:layout_constraintStart_toEndOf="@+id/imageLeagueLogo"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@tools:sample/lorem" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="@dimen/dp_2"
-        android:layout_marginTop="@dimen/dp_1"
-        android:background="?attr/color_title_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewSpinner" />
+        <View
+            android:id="@+id/viewSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/color_header_footer_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageLeagueLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            app:image="@{competition.leagueLogo}"
+            app:layout_constraintBottom_toBottomOf="@+id/viewSpinner"
+            app:layout_constraintDimensionRatio="w, 1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewSpinner"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textLeagueName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="2"
+            android:text="@{competition.leagueName}"
+            android:textColor="?attr/color_title_text"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewSpinner"
+            app:layout_constraintEnd_toEndOf="@+id/viewSpinner"
+            app:layout_constraintStart_toEndOf="@+id/imageLeagueLogo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_1"
+            android:background="?attr/color_title_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewSpinner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
