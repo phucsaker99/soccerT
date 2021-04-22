@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.soccert.base.RxViewModel
 import com.example.soccert.data.model.Country
 import com.example.soccert.data.repository.SoccerRepository
-import io.reactivex.rxjava3.kotlin.addTo
-import io.reactivex.rxjava3.schedulers.Schedulers
 
 class HomeViewModel(
     private val soccerRepository: SoccerRepository

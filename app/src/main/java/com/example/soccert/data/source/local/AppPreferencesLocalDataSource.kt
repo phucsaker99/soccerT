@@ -14,9 +14,9 @@ class AppPreferencesLocalDataSource(
 
     override fun getLanguage() = appPreferencesHelper.get(PREFS_LANGUAGE_KEY, "")
 
-    override fun setCompetitionType(competitionValue: Boolean) = appPreferencesHelper.put(
-        PREFS_COMPETITION_KEY, false
+    override fun setCountryID(countryID: String) = appPreferencesHelper.put(
+        PREFS_COMPETITION_KEY, countryID
     )
 
-    override fun getCompetitionType() = appPreferencesHelper.get(PREFS_COMPETITION_KEY, false)
+    override fun getCountryID() = appPreferencesHelper.get(PREFS_COMPETITION_KEY, "")
 }
