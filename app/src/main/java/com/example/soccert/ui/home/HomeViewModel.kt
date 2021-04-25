@@ -45,7 +45,7 @@ class HomeViewModel(
 
     fun getEventByDateAndLeague(fromDate: String, toDate: String) {
         _itemCompetition.value?.let { item ->
-            soccerRepository.getEvents(item.leagueID.toInt(), fromDate, toDate)
+            soccerRepository.getEvents(item.leagueID, fromDate, toDate)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

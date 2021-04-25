@@ -25,6 +25,7 @@ class LeagueAdapter(
             parent,
             false
         )
+        binding.competition = getItem(position)
         return binding.root
     }
 
@@ -35,6 +36,7 @@ class LeagueAdapter(
             parent,
             false
         )
+        binding.competition = getItem(position)
         return binding.root
     }
 

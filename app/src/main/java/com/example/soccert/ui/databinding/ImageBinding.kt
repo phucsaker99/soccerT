@@ -1,5 +1,6 @@
 package com.example.soccert.ui.databinding
 
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.example.soccert.utils.loadImageCircle
@@ -11,5 +12,12 @@ fun loadUrlImageCircle(imageView: ImageView, urlImage: String, cropStatus: Boole
         imageView.loadImageCircle(urlImage)
     } else {
         imageView.loadImageRectangle(urlImage)
+    }
+}
+
+@BindingAdapter("app:notificationStatus")
+fun ImageView.loadStatusNotification(status: String) {
+    if (status.isNotEmpty()) {
+        visibility = View.GONE
     }
 }

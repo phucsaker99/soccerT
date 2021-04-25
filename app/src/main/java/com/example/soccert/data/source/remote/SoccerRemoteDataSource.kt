@@ -19,7 +19,7 @@ class SoccerRemoteDataSource(
 
     override fun getStandings(leagueID: Int) = soccerApiService.getStandings(leagueID)
 
-    override fun getEvents(leagueID: Int, from: String, to: String) =
+    override fun getEvents(leagueID: String, from: String, to: String) =
         soccerApiService.getEvents(leagueID, from, to)
 
     override fun getMatch(matchID: Int) = soccerApiService.getMatch(matchID)

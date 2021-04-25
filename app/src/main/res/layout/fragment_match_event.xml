@@ -104,7 +104,6 @@
                 android:id="@+id/recyclerEvent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_16"
                 app:data="@{homeVM.event}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

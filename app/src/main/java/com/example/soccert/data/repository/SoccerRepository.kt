@@ -12,7 +12,7 @@ interface SoccerRepository {
     fun getTeam(teamID: Int): Observable<List<Team>>
     fun getPlayer(playerName: String): Observable<List<Player>>
     fun getStandings(leagueID: Int): Observable<List<Standing>>
-    fun getEvents(leagueID: Int, from: String, to: String): Observable<List<Event>>
+    fun getEvents(leagueID: String, from: String, to: String): Observable<List<Event>>
     fun getMatch(matchID: Int): Observable<List<Event>>
 
     fun getTeamsFavorite(): Observable<List<Team>>

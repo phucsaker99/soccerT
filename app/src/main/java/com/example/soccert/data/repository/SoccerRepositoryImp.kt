@@ -21,7 +21,7 @@ class SoccerRepositoryImp(
 
     override fun getStandings(leagueID: Int) = remote.getStandings(leagueID)
 
-    override fun getEvents(leagueID: Int, from: String, to: String) =
+    override fun getEvents(leagueID: String, from: String, to: String) =
         remote.getEvents(leagueID, from, to)
 
     override fun getMatch(matchID: Int) = remote.getMatch(matchID)

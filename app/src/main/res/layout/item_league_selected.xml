@@ -33,6 +33,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@null"
             android:scaleType="center"
+            app:image="@{competition.leagueLogo}"
             app:layout_constraintBottom_toBottomOf="@+id/viewSpinner"
             app:layout_constraintDimensionRatio="w, 1:1"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,6 +50,7 @@
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:lines="2"
+            android:text="@{competition.leagueName}"
             android:textColor="?attr/color_title_text"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
@@ -63,7 +65,6 @@
             android:layout_height="@dimen/dp_2"
             android:layout_marginTop="@dimen/dp_1"
             android:background="?attr/color_title_text"
-            android:text="@{competition.leagueName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/viewSpinner" />
