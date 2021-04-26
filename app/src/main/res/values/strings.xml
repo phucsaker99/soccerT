@@ -17,4 +17,5 @@
     <string name="text_to_event">to:</string>
     <string name="text_popular_leagues">Popular leagues</string>
     <string name="text_date_holder">%d-%d-%d</string>
+    <string name="text_search">Search…</string>
 </resources>
