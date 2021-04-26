@@ -36,9 +36,9 @@ interface SoccerApiService {
 
     @GET(ApiEndPoint.GET_EVENTS)
     fun getEvents(
-        @Query(PARAMS_LEAGUE_ID) leagueID: Int,
-        @Query(PARAMS_FROM) from: String = LocalDate.now().minusDays(10).toString(),
-        @Query(PARAMS_TO) to: String = LocalDate.now().plusDays(10).toString()
+        @Query(PARAMS_LEAGUE_ID) leagueID: String,
+        @Query(PARAMS_FROM) from: String,
+        @Query(PARAMS_TO) to: String
     ): Observable<List<Event>>
 
     @GET(ApiEndPoint.GET_EVENTS)

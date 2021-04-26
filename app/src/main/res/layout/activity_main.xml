@@ -25,6 +25,7 @@
         android:background="?attr/color_header_footer_background"
         app:itemIconTint="@color/color_selected_bottom_navigation"
         app:itemTextColor="@color/color_selected_bottom_navigation"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
