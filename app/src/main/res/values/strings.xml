@@ -6,14 +6,15 @@
     <string name="title_news">News</string>
     <string name="title_more">More</string>
     <string name="title_choose_country">Choose a country</string>
+    <string name="title_match_events">Match Events</string>
+    <string name="title_standing">Standing</string>
+    <string name="title_team">Teams</string>
 
     <string name="error_default">Error!</string>
     <string name="error_convert_type">Error convert data type!</string>
 
-    <string name="title_match_events">Match Events</string>
-    <string name="title_standing">Standing</string>
-    <string name="title_team">Teams</string>
     <string name="text_from_event">from: </string>
     <string name="text_to_event">to:</string>
     <string name="text_popular_leagues">Popular leagues</string>
+    <string name="text_date_holder">%d-%d-%d</string>
 </resources>

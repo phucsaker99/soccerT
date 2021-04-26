@@ -1,4 +1,4 @@
-package com.example.soccert.ui.home.matchevent
+package com.example.soccert.ui.detailmatch
 
 import com.example.soccert.R
 import androidx.lifecycle.Observer
@@ -11,10 +11,10 @@ import kotlinx.android.synthetic.main.fragment_match_event.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.time.LocalDate
 
-class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
+class DetailMatchFragment : BaseFragment<FragmentMatchEventBinding>() {
     private val adapterEvent = MatchEventAdapter(this::itemSelectedEvent)
 
-    override val layoutResource get() = R.layout.fragment_match_event
+    override val layoutResource get() = R.layout.fragment_detail_match
     override val viewModel by sharedViewModel<HomeViewModel>()
 
     override fun initViews() {
