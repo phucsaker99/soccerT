@@ -31,7 +31,11 @@
         android:id="@+id/newsFragment"
         android:name="com.example.soccert.ui.news.NewsFragment"
         android:label="fragment_news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsWebFragment"
+            app:destination="@id/newsWebFragment" />
+    </fragment>
     <fragment
         android:id="@+id/regionFragment"
         android:name="com.example.soccert.ui.region.RegionFragment"
@@ -41,5 +45,13 @@
             android:id="@+id/action_regionFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsWebFragment"
+        android:name="com.example.soccert.ui.news.NewsWebFragment"
+        android:label="NewsWebFragment" >
+        <argument
+            android:name="link"
+            app:argType="string" />
     </fragment>
 </navigation>

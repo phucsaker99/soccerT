@@ -9,7 +9,6 @@ import com.example.soccert.databinding.FragmentRegionBinding
 import com.example.soccert.ui.adapter.CountryAdapter
 import com.example.soccert.utils.ToastType
 import com.example.soccert.utils.showToast
-import kotlinx.android.synthetic.main.fragment_region.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegionFragment : BaseFragment<FragmentRegionBinding>() {
@@ -19,17 +18,13 @@ class RegionFragment : BaseFragment<FragmentRegionBinding>() {
     private val countryAdapter = CountryAdapter(this::onItemCountryClicked)
 
     override fun initViews() {
-        initAdapter()
-    }
-
-    private fun initAdapter() {
-        recyclerCountries.adapter = countryAdapter
     }
 
     override fun initData() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             regionVM = viewModel
+            recyclerCountries.adapter = countryAdapter
         }
     }
 

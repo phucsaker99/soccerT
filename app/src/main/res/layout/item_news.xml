@@ -3,18 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="news"
+            type="com.example.soccert.data.model.News" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_2"
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginTop="@dimen/dp_2"
+        android:layout_marginEnd="@dimen/dp_4"
         android:background="?attr/color_extra_background"
-        android:padding="@dimen/dp_10">
+        android:padding="@dimen/dp_2">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardNews"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginBottom="@dimen/dp_4"
+            app:cardCornerRadius="@dimen/dp_8"
+            app:cardElevation="@dimen/dp_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +39,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
-                android:scaleType="fitXY" />
+                android:scaleType="fitXY"
+                app:cropCircle="@{false}"
+                app:image="@{news.urlToImage}" />
 
         </androidx.cardview.widget.CardView>
 
@@ -37,6 +52,8 @@
             android:layout_marginStart="@dimen/dp_8"
             android:ellipsize="end"
             android:fontFamily="@font/archivo_black"
+            android:lines="1"
+            android:text="@{news.title}"
             android:textColor="?attr/color_title_text"
             android:textSize="@dimen/sp_12"
             android:textStyle="italic"
@@ -49,9 +66,10 @@
             android:id="@+id/textNewsDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_4"
             android:ellipsize="end"
             android:lines="3"
+            android:text="@{news.description}"
             android:textColor="?attr/color_title_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textNewsTitle"

@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="NewsVM"
+            type="com.example.soccert.ui.news.NewsViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,11 +32,11 @@
             android:id="@+id/recyclerNews"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:data="@{NewsVM.news}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_news"
             app:layout_constraintTop_toBottomOf="@+id/toolbarNews" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
