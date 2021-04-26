@@ -17,7 +17,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.home.matchevent.MatchEventFragment">
+            tools:context=".ui.detailmatch.DetailMatchFragment">
 
             <View
                 android:id="@+id/viewDate"
@@ -104,7 +104,6 @@
                 android:id="@+id/recyclerEvent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/dp_8"
                 android:layout_marginTop="@dimen/dp_16"
                 app:data="@{homeVM.event}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -39,8 +39,8 @@
 
         <ImageView
             android:id="@+id/imageCountry"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_24"
             android:layout_marginTop="@dimen/dp_8"
             android:layout_marginEnd="@dimen/dp_8"
             android:layout_marginBottom="@dimen/dp_8"
@@ -60,9 +60,9 @@
             android:layout_marginEnd="@dimen/dp_4"
             android:layout_marginBottom="@dimen/dp_8"
             android:background="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/imageCountry"
+            app:layout_constraintBottom_toBottomOf="@+id/viewHeader"
             app:layout_constraintEnd_toStartOf="@+id/imageCountry"
-            app:layout_constraintTop_toTopOf="@+id/imageCountry" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabHome"

@@ -13,10 +13,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.soccert.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_regionFragment"
             app:destination="@id/regionFragment" />
+        <argument
+            android:name="countryID"
+            android:defaultValue="-1"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/moreFragment"
@@ -32,5 +36,10 @@
         android:id="@+id/regionFragment"
         android:name="com.example.soccert.ui.region.RegionFragment"
         android:label="RegionFragment"
-        tools:layout="@layout/fragment_region"/>
+        tools:layout="@layout/fragment_region">
+        <action
+            android:id="@+id/action_regionFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
 </navigation>

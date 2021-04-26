@@ -1,11 +1,11 @@
 package com.example.soccert.ui.region
 
+import androidx.navigation.fragment.findNavController
 import com.example.soccert.R
 import com.example.soccert.base.BaseFragment
 import com.example.soccert.data.model.Country
 import com.example.soccert.databinding.FragmentRegionBinding
 import com.example.soccert.ui.adapter.CountryAdapter
-import kotlinx.android.synthetic.main.fragment_region.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegionFragment : BaseFragment<FragmentRegionBinding>() {
@@ -23,14 +23,18 @@ class RegionFragment : BaseFragment<FragmentRegionBinding>() {
             lifecycleOwner = viewLifecycleOwner
             regionVM = viewModel
         }
-        recyclerCountries.adapter = countryAdapter
     }
 
     override fun initActions() {
-
+        binding.cardPopularLeagues.setOnClickListener {
+            val action =
+                RegionFragmentDirections.actionRegionFragmentToHomeFragment("")
+            findNavController().navigate(action)
+        }
     }
 
     private fun onItemCountryClicked(country: Country) {
-
+        val action = RegionFragmentDirections.actionRegionFragmentToHomeFragment(country.countryID)
+        findNavController().navigate(action)
     }
 }
