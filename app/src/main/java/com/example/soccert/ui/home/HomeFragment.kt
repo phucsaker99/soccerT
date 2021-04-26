@@ -46,13 +46,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun setTabsWithViewPager() {
-        tabHome.setupWithViewPager(viewPagerHome)
+        binding.tabHome.setupWithViewPager(viewPagerHome)
     }
 
     override fun initData() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             homeVM = viewModel
+            spinnerLeagues.adapter = leagueAdapter
         }
 
         checkArgs()
@@ -87,10 +88,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 })
             }
         }
-
-        viewModel.error.observe(viewLifecycleOwner, Observer {
-            context?.showToast(ToastType.Error, it)
-        })
     }
 
     companion object {

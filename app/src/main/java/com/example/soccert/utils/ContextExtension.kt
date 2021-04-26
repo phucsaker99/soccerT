@@ -4,7 +4,9 @@ import android.content.Context
 import android.widget.Toast
 import es.dmoral.toasty.Toasty
 
-fun Context.showToast(type: ToastType, msg: String, duration: Int = Toast.LENGTH_SHORT) {
+const val Toast_LENGTH_DEFAULT = 1000
+
+fun Context.showToast(type: ToastType, msg: String, duration: Int = Toast_LENGTH_DEFAULT) {
     when (type) {
         ToastType.Normal -> Toasty.normal(this, msg, duration).show()
         ToastType.Success -> Toasty.success(this, msg, duration).show()

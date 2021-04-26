@@ -8,8 +8,6 @@ import com.example.soccert.data.model.Event
 import com.example.soccert.databinding.FragmentMatchEventBinding
 import com.example.soccert.ui.adapter.MatchEventAdapter
 import com.example.soccert.ui.home.HomeViewModel
-import com.example.soccert.utils.ToastType
-import com.example.soccert.utils.showToast
 import kotlinx.android.synthetic.main.fragment_match_event.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.time.LocalDate
@@ -24,17 +22,13 @@ class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
 
     override fun initViews() {
         initEventDate()
-        initAdapter()
-    }
-
-    private fun initAdapter() {
-        recyclerEvent.adapter = adapterEvent
     }
 
     override fun initData() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             homeVM = viewModel
+            recyclerEvent.adapter = adapterEvent
         }
     }
 
@@ -58,8 +52,10 @@ class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
     }
 
     private fun initEventDate() {
-        textFromDate.text = LocalDate.now().minusDays(10).toString()
-        textToDate.text = LocalDate.now().plusDays(10).toString()
+        binding.apply {
+            textFromDate.text = LocalDate.now().minusDays(FROM_DATE_DEFAULT).toString()
+            textToDate.text = LocalDate.now().plusDays(TO_DATE_DEFAULT).toString()
+        }
         viewModel.getEventByDateAndLeague(textFromDate.text.toString(), textToDate.text.toString())
     }
 
@@ -108,5 +104,10 @@ class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
 
     private fun itemSelectedEvent(event: Event) {
 
+    }
+
+    companion object {
+        const val FROM_DATE_DEFAULT = 10L
+        const val TO_DATE_DEFAULT = 10L
     }
 }
