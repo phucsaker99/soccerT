@@ -1,5 +1,6 @@
 package com.example.soccert.data.model
 
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 
 data class Standing(
@@ -23,4 +24,14 @@ data class Standing(
     val overallLeagueGF: String,
     @SerializedName("overall_league_PTS")
     val overallLeaguePTS: String
-)
+) {
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<Standing>() {
+            override fun areItemsTheSame(oldItem: Standing, newItem: Standing) =
+                oldItem.teamID == newItem.teamID
+
+            override fun areContentsTheSame(oldItem: Standing, newItem: Standing) =
+                oldItem == newItem
+        }
+    }
+}
