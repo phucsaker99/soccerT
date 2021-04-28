@@ -7,8 +7,10 @@ import com.example.soccert.base.BaseFragment
 import com.example.soccert.data.model.Event
 import com.example.soccert.databinding.FragmentMatchEventBinding
 import com.example.soccert.ui.adapter.MatchEventAdapter
+import com.example.soccert.ui.home.HomeFragment
 import com.example.soccert.ui.home.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_match_event.*
+import kotlinx.android.synthetic.main.item_league.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.time.LocalDate
 import java.util.*

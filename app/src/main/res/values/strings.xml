@@ -25,4 +25,13 @@
     <string name="text_extra_intent_share_app">This is my text to send.</string>
     <string name="text_developer">Developer: Nguyễn Văn Phúc</string>
     <string name="text_product">Product: SoccerT</string>
+    <string name="text_pos">Pos</string>
+    <string name="text_team">Team</string>
+    <string name="text_ptl">Pld</string>
+    <string name="text_w">W</string>
+    <string name="text_d">D</string>
+    <string name="text_l">L</string>
+    <string name="text_gd">GD</string>
+    <string name="text_pts">Pts</string>
+    <string name="text_season_20_21">Season 2020–2021</string>
 </resources>
