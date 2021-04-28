@@ -1,6 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.more.MoreFragment" />
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageHeader"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bg_pitch" />
+
+        <View
+            android:id="@+id/viewBody"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_32"
+            android:background="@drawable/bg_radius_top_left_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageHeader" />
+
+        <TextView
+            android:id="@+id/textUnderline1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_64"
+            android:background="?attr/color_title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/viewBody"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <TextView
+            android:id="@+id/textUnderline2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_64"
+            android:background="?attr/color_title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textUnderline1"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <TextView
+            android:id="@+id/textUnderline3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_64"
+            android:background="?attr/color_title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textUnderline2"
+            app:layout_constraintWidth_percent="0.6" />
+
+        <TextView
+            android:id="@+id/textUnderline4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_2"
+            android:layout_marginTop="@dimen/dp_64"
+            android:background="?attr/color_title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textUnderline3"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <TextView
+            android:id="@+id/textShareApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:drawablePadding="@dimen/dp_4"
+            android:gravity="center"
+            android:text="@string/text_share_app"
+            android:textColor="?attr/color_title_text"
+            app:drawableStartCompat="@drawable/ic_share"
+            app:layout_constraintBottom_toTopOf="@+id/textUnderline1"
+            app:layout_constraintEnd_toEndOf="@+id/textUnderline1" />
+
+        <TextView
+            android:id="@+id/textInfoApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:drawablePadding="@dimen/dp_4"
+            android:gravity="center"
+            android:text="@string/text_info_app"
+            android:textColor="?attr/color_title_text"
+            app:drawableStartCompat="@drawable/ic_info"
+            app:layout_constraintBottom_toTopOf="@+id/textUnderline2"
+            app:layout_constraintEnd_toEndOf="@+id/textUnderline2" />
+
+        <TextView
+            android:id="@+id/textNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:drawablePadding="@dimen/dp_4"
+            android:gravity="center"
+            android:text="@string/text_notification"
+            android:textColor="?attr/color_title_text"
+            app:drawableStartCompat="@drawable/ic_more_notification"
+            app:layout_constraintBottom_toTopOf="@+id/textUnderline3"
+            app:layout_constraintEnd_toEndOf="@+id/textUnderline3" />
+
+        <Switch
+            android:id="@+id/switchChangeTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:drawableStart="@drawable/ic_theme"
+            android:drawablePadding="@dimen/dp_4"
+            android:gravity="center"
+            android:text="@string/text_change_theme"
+            android:textColor="?attr/color_title_text"
+            app:layout_constraintBottom_toTopOf="@+id/textUnderline4"
+            app:layout_constraintEnd_toEndOf="@+id/textUnderline4"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="
+        textUnderline1,
+        textUnderline2,
+        textUnderline3,
+        textUnderline4,
+        textShareApp,
+        textInfoApp,
+        textNotification,
+        switchChangeTheme" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -5,15 +5,12 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.soccert.R
 import com.example.soccert.base.BaseFragment
 import com.example.soccert.data.model.News
 import com.example.soccert.databinding.FragmentNewsBinding
 import com.example.soccert.ui.adapter.NewsAdapter
-import com.example.soccert.utils.ToastType
-import com.example.soccert.utils.showToast
 import kotlinx.android.synthetic.main.fragment_news.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
