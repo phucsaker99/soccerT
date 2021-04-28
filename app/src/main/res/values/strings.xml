@@ -18,4 +18,11 @@
     <string name="text_popular_leagues">Popular leagues</string>
     <string name="text_date_holder">%d-%d-%d</string>
     <string name="text_search">Search…</string>
+    <string name="text_share_app">Share App</string>
+    <string name="text_info_app">Info App</string>
+    <string name="text_notification">Notification</string>
+    <string name="text_change_theme">Change Theme</string>
+    <string name="text_extra_intent_share_app">This is my text to send.</string>
+    <string name="text_developer">Developer: Nguyễn Văn Phúc</string>
+    <string name="text_product">Product: SoccerT</string>
 </resources>

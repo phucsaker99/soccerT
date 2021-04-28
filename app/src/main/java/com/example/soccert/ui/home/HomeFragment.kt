@@ -13,9 +13,7 @@ import com.example.soccert.ui.adapter.LeagueAdapter
 import com.example.soccert.ui.home.matchevent.MatchEventFragment
 import com.example.soccert.ui.home.standing.StandingFragment
 import com.example.soccert.ui.home.teams.TeamsFragment
-import com.example.soccert.utils.ToastType
 import com.example.soccert.utils.loadImageRectangle
-import com.example.soccert.utils.showToast
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 

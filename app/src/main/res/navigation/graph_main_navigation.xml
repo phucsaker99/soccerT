@@ -26,7 +26,11 @@
         android:id="@+id/moreFragment"
         android:name="com.example.soccert.ui.more.MoreFragment"
         android:label="fragment_more"
-        tools:layout="@layout/fragment_more" />
+        tools:layout="@layout/fragment_more">
+        <action
+            android:id="@+id/action_moreFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.example.soccert.ui.news.NewsFragment"
@@ -54,4 +58,9 @@
             android:name="link"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.soccert.ui.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
 </navigation>
