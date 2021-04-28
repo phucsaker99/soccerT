@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="standingVM"
+            type="com.example.soccert.ui.home.HomeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_8"
+            android:fontFamily="@font/archivo_black"
             android:text="@string/text_season_20_21"
             android:textColor="?attr/color_title_text"
             app:layout_constraintBottom_toBottomOf="@+id/viewSeason"
@@ -44,6 +52,8 @@
             android:id="@+id/recyclerStanding"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:data="@{standingVM.standing}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

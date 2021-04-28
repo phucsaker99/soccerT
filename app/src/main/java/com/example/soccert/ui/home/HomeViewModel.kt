@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.soccert.base.RxViewModel
 import com.example.soccert.data.model.Competition
 import com.example.soccert.data.model.Event
+import com.example.soccert.data.model.Standing
 import com.example.soccert.data.repository.AppPreferencesRepository
 import com.example.soccert.data.repository.SoccerRepository
 import com.example.soccert.utils.PopularLeaguesUtil
@@ -29,6 +30,9 @@ class HomeViewModel(
     private val _itemCompetition = MutableLiveData<Competition>()
     val itemCompetition: LiveData<Competition> get() = _itemCompetition
 
+    private val _standing = MutableLiveData<List<Standing>>()
+    val standing: LiveData<List<Standing>> get() = _standing
+
     fun getInfoSoccer() {
         getCompetitionType()
         getLeagues()
@@ -41,6 +45,15 @@ class HomeViewModel(
 
     fun setItemCompetition(competition: Competition) {
         _itemCompetition.value = competition
+
+        soccerRepository.getStandings(competition.leagueID.toInt())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                _standing.value = it
+            }, {
+                _error.value = it.message.toString()
+            }).addTo(disposables)
     }
 
     fun getEventByDateAndLeague(fromDate: String, toDate: String) {
