@@ -2,11 +2,7 @@ package com.example.soccert.ui.more
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.navigation.NavController
-import androidx.navigation.NavDeepLink
-import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.example.soccert.R
 import com.example.soccert.base.BaseFragment
