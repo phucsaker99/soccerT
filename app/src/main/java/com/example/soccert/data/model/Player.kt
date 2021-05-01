@@ -10,7 +10,7 @@ data class Player(
     @SerializedName("player_goals")
     val playerGoals: String,
     @SerializedName("player_key")
-    val playerKey: Int,
+    val playerKey: Double,
     @SerializedName("player_match_played")
     val playerMatchPlayed: String,
     @SerializedName("player_name")

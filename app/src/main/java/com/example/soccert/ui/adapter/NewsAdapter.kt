@@ -1,5 +1,7 @@
 package com.example.soccert.ui.adapter
 
+import android.graphics.text.LineBreaker
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -29,6 +31,10 @@ class NewsAdapter(
         override fun onBind(itemData: News) {
             super.onBind(itemData)
             itemNewsBinding.news = itemData
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                itemNewsBinding.textNewsDescription.justificationMode =
+                    LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+            }
         }
     }
 }

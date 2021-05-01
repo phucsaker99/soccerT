@@ -37,7 +37,7 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.error.observe(viewLifecycleOwner, Observer {
-            view.context.showToast(ToastType.Error, getString(R.string.error_default))
+            view.context.showToast(ToastType.Error, it)
         })
         initViews()
         initData()

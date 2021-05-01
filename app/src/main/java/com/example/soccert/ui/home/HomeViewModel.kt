@@ -2,16 +2,20 @@ package com.example.soccert.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.example.soccert.base.RxViewModel
 import com.example.soccert.data.model.Competition
 import com.example.soccert.data.model.Event
 import com.example.soccert.data.model.Standing
+import com.example.soccert.data.model.Team
 import com.example.soccert.data.repository.AppPreferencesRepository
 import com.example.soccert.data.repository.SoccerRepository
+import com.example.soccert.utils.ExceptionUtil
 import com.example.soccert.utils.PopularLeaguesUtil
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.rxjava3.subjects.BehaviorSubject
 
 class HomeViewModel(
     private val soccerRepository: SoccerRepository,
@@ -33,6 +37,14 @@ class HomeViewModel(
     private val _standing = MutableLiveData<List<Standing>>()
     val standing: LiveData<List<Standing>> get() = _standing
 
+    private val _team = MutableLiveData<List<Team>>()
+    val team: LiveData<List<Team>> get() = _team
+
+    private val competitionSubject = BehaviorSubject.create<Competition>()
+    private val competitionObserver = Observer<Competition> {
+        competitionSubject.onNext(it)
+    }
+
     fun getInfoSoccer() {
         getCompetitionType()
         getLeagues()
@@ -52,22 +64,46 @@ class HomeViewModel(
             .subscribe({
                 _standing.value = it
             }, {
-                _error.value = it.message.toString()
+                if (it.message.toString() == ExceptionUtil.EXCEPTION_RETURN_OBJECT) {
+                    _standing.value = emptyList()
+                } else {
+                    _error.value = it.message.toString()
+                }
+            }).addTo(disposables)
+
+        soccerRepository.getTeams(competition.leagueID.toInt())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                _team.value = it
+            }, {
+                if (it.message.toString() == ExceptionUtil.EXCEPTION_RETURN_OBJECT) {
+                    _team.value = emptyList()
+                } else {
+                    _error.value = it.message.toString()
+                }
             }).addTo(disposables)
     }
 
     fun getEventByDateAndLeague(fromDate: String, toDate: String) {
-        _itemCompetition.value?.let { item ->
-            soccerRepository.getEvents(item.leagueID, fromDate, toDate)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    _event.value = it
-                }, {
+        _itemCompetition.observeForever(competitionObserver)
+
+        competitionSubject
+            .subscribeOn(Schedulers.io())
+            .switchMap {
+                soccerRepository.getEvents(it.leagueID, fromDate, toDate)
+            }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                _event.value = it
+            }, {
+                if (it.message.toString() == ExceptionUtil.EXCEPTION_RETURN_OBJECT) {
                     _event.value = emptyList()
+                } else {
                     _error.value = it.message.toString()
-                }).addTo(disposables)
-        }
+                }
+            })
+            .addTo(disposables)
     }
 
     private fun getCompetitionType() {
@@ -96,5 +132,10 @@ class HomeViewModel(
 
     private fun getPopularLeagues() {
         _competition.value = PopularLeaguesUtil.popularLeagues
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        _itemCompetition.removeObserver(competitionObserver)
     }
 }

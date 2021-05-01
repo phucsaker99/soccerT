@@ -23,7 +23,7 @@ interface SoccerApiService {
     fun getLeagues(@Query(PARAMS_COUNTRY_ID) countryID: Int): Observable<List<Competition>>
 
     @GET(ApiEndPoint.GET_TEAMS)
-    fun getTeams(@Query(PARAMS_COUNTRY_ID) countryID: Int): Observable<List<Team>>
+    fun getTeams(@Query(PARAMS_LEAGUE_ID) countryID: Int): Observable<List<Team>>
 
     @GET(ApiEndPoint.GET_TEAMS)
     fun getTeam(@Query(PARAMS_TEAM_ID) teamID: Int): Observable<List<Team>>
