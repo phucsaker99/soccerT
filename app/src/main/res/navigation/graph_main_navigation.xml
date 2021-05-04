@@ -70,5 +70,9 @@
         android:id="@+id/detailMatchFragment"
         android:name="com.example.soccert.ui.detailmatch.DetailMatchFragment"
         android:label="DetailMatchFragment"
-        tools:layout="@layout/fragment_detail_match"/>
+        tools:layout="@layout/fragment_detail_match">
+        <argument
+            android:name="event "
+            app:argType="com.example.soccert.data.model.Event" />
+    </fragment>
 </navigation>

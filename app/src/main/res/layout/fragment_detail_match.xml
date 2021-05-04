@@ -6,140 +6,182 @@
     <data>
 
         <variable
-            name="homeVM"
-            type="com.example.soccert.ui.home.HomeViewModel" />
+            name="event"
+            type="com.example.soccert.data.model.Event" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.home.detailmatch.DetailMatchFragment">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imagePitch"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/dp_8"
-            android:layout_marginTop="@dimen/dp_8"
-            android:layout_marginEnd="@dimen/dp_8"
-            android:contentDescription="@null"
-            android:scaleType="fitXY"
-            android:src="@drawable/pitch"
-            app:layout_constraintDimensionRatio="3:2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.home.detailmatch.DetailMatchFragment">
 
-        <View
-            android:id="@+id/viewPitch"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/border_view"
-            app:layout_constraintDimensionRatio="4:3"
-            app:layout_constraintEnd_toEndOf="@+id/imagePitch"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imagePitch"
-            app:layout_constraintTop_toTopOf="@+id/imagePitch" />
+            <ImageView
+                android:id="@+id/imagePitch"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                android:src="@drawable/pitch"
+                app:layout_constraintDimensionRatio="3:2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardResult"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginEnd="@dimen/dp_16"
-            android:elevation="@dimen/dp_4"
-            app:cardCornerRadius="@dimen/dp_8"
-            app:cardElevation="@dimen/dp_2"
-            app:layout_constraintBottom_toBottomOf="@+id/viewPitch"
-            app:layout_constraintEnd_toEndOf="@+id/viewPitch"
-            app:layout_constraintStart_toStartOf="@+id/viewPitch"
-            app:layout_constraintTop_toBottomOf="@+id/viewPitch">
+            <View
+                android:id="@+id/viewPitch"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/border_view"
+                app:layout_constraintDimensionRatio="4:3"
+                app:layout_constraintEnd_toEndOf="@+id/imagePitch"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/imagePitch"
+                app:layout_constraintTop_toTopOf="@+id/imagePitch" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/dp_4">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:elevation="@dimen/dp_4"
+                app:cardCornerRadius="@dimen/dp_8"
+                app:cardElevation="@dimen/dp_2"
+                app:layout_constraintBottom_toBottomOf="@+id/viewPitch"
+                app:layout_constraintEnd_toEndOf="@+id/viewPitch"
+                app:layout_constraintStart_toStartOf="@+id/viewPitch"
+                app:layout_constraintTop_toBottomOf="@+id/viewPitch">
 
-                <ImageView
-                    android:id="@+id/imageHomeTeam"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp_8"
-                    android:contentDescription="@null"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_calender" />
+                    android:padding="@dimen/dp_4">
 
-                <TextView
-                    android:id="@+id/textHomeName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="@dimen/dp_8"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:textSize="@dimen/sp_12"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/textResult"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/imageHomeTeam"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@tools:sample/lorem" />
+                    <ImageView
+                        android:id="@+id/imageHomeTeam"
+                        android:layout_width="@dimen/dp_32"
+                        android:layout_height="@dimen/dp_32"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:contentDescription="@null"
+                        app:image="@{event.teamHomeBadge}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@drawable/ic_calender" />
 
-                <TextView
-                    android:id="@+id/textResult"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:gravity="center"
-                    android:padding="@dimen/dp_2"
-                    android:textSize="@dimen/sp_12"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageAwayTeam"
-                    app:layout_constraintStart_toEndOf="@+id/imageHomeTeam"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@tools:sample/lorem" />
+                    <TextView
+                        android:id="@+id/textHomeName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:ellipsize="end"
+                        android:gravity="start"
+                        android:text="@{event.matchHomeTeamName}"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/textResult"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/imageHomeTeam"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textAwayName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginEnd="@dimen/dp_8"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:textSize="@dimen/sp_12"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/imageAwayTeam"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/textResult"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@tools:sample/lorem" />
+                    <TextView
+                        android:id="@+id/textResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_2"
+                        android:text="@{event.matchHomeTeamScore + ` - ` + event.matchAwayTeamScore}"
+                        android:textSize="@dimen/sp_12"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageAwayTeam"
+                        app:layout_constraintStart_toEndOf="@+id/imageHomeTeam"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/imageAwayTeam"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@null"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_calender" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/textAwayName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_8"
+                        android:ellipsize="end"
+                        android:gravity="end"
+                        android:text="@{event.matchAwayTeamName}"
+                        android:textSize="@dimen/sp_12"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imageAwayTeam"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/textResult"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/imageAwayTeam"
+                        android:layout_width="@dimen/dp_32"
+                        android:layout_height="@dimen/dp_32"
+                        android:contentDescription="@null"
+                        app:image="@{event.teamAwayBadge}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@drawable/ic_calender" />
 
-        <TextView
-            android:id="@+id/textTitleStatistics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_16"
-            android:fontFamily="@font/archivo_black"
-            android:text="@string/title_statistics"
-            android:textColor="?attr/color_extra_background"
-            android:textSize="@dimen/sp_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardResult" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/textTitleStatistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/archivo_black"
+                android:text="@string/title_statistics"
+                android:textColor="?attr/color_extra_background"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardResult" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerStatistics"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_16"
+                app:data="@{event.statistics}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleStatistics"
+                tools:listitem="@layout/item_statistic" />
+
+            <TextView
+                android:id="@+id/textTitleLineups"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:fontFamily="@font/archivo_black"
+                android:text="@string/title_lineups"
+                android:textColor="?attr/color_extra_background"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerStatistics" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

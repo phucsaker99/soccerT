@@ -9,6 +9,11 @@
     <string name="title_match_events">Match Events</string>
     <string name="title_standing">Standing</string>
     <string name="title_team">Teams</string>
+    <string name="title_statistics">Statistics</string>
+    <string name="title_lineups">Lineups</string>
+    <string name="title_starting_lineup">Starting lineup</string>
+    <string name="title_substitute">Substitute</string>
+    <string name="title_coach">Coach</string>
 
     <string name="error_default">Error!</string>
     <string name="error_convert_type">Error convert data type!</string>
@@ -34,5 +39,4 @@
     <string name="text_gd">GD</string>
     <string name="text_pts">Pts</string>
     <string name="text_season_20_21">Season 2020–2021</string>
-    <string name="title_statistics">Statistics</string>
 </resources>
