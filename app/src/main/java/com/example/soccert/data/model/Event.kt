@@ -1,13 +1,16 @@
 package com.example.soccert.data.model
 
+import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "EventNotification")
+@Parcelize
 data class Event(
     @PrimaryKey
     @ColumnInfo(name = "match_id")
@@ -67,7 +70,7 @@ data class Event(
     @Ignore
     @SerializedName("substitutions")
     val substitutions: Substitutions?
-) {
+) : Parcelable {
 
     constructor(
         matchID: String,
