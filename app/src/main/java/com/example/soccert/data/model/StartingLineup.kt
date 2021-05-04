@@ -1,6 +1,7 @@
 package com.example.soccert.data.model
 
 import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -12,4 +13,15 @@ data class StartingLineup(
     val lineupPlayer: String,
     @SerializedName("lineup_position")
     val lineupPosition: String
-) : Parcelable
+) : Parcelable {
+
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<StartingLineup>() {
+            override fun areItemsTheSame(oldItem: StartingLineup, newItem: StartingLineup) =
+                oldItem === newItem
+
+            override fun areContentsTheSame(oldItem: StartingLineup, newItem: StartingLineup) =
+                oldItem == newItem
+        }
+    }
+}
