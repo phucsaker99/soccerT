@@ -1,7 +1,10 @@
 package com.example.soccert.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Away(
     @SerializedName("coach")
     val coach: List<Coach>,
@@ -11,4 +14,4 @@ data class Away(
     val starting_lineups: List<StartingLineup>,
     @SerializedName("substitutes")
     val substitutes: List<Substitute>
-)
+) : Parcelable
