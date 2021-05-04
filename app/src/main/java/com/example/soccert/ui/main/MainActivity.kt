@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.soccert.R
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.TimeUnit
-
 
 class MainActivity : AppCompatActivity() {
     private val navController by lazy { navHostFragment.navController }
@@ -23,12 +23,20 @@ class MainActivity : AppCompatActivity() {
         initTheme()
         setContentView(R.layout.activity_main)
 
-        bottomNavigationView.setupWithNavController(navController)
+        bottomNavigationView.apply {
+            setupWithNavController(navController)
+            setOnNavigationItemSelectedListener {
+                if (it.itemId != bottomNavigationView.selectedItemId) {
+                    NavigationUI.onNavDestinationSelected(it, navController)
+                }
+                true
+            }
+        }
     }
 
     private fun initSplash() {
         subcription = Observable.just(true).delay(SPLASH_TIME, TimeUnit.MILLISECONDS)
-            .doOnNext { setTheme(R.style.Theme_SoccerT_Light) }
+            .doOnNext { initTheme() }
             .subscribe()
     }
 
