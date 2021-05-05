@@ -2,6 +2,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <import type="java.util.List" />
+
+        <import type="com.example.soccert.data.model.StartingLineup" />
+
+        <import type="com.example.soccert.data.model.Substitute" />
+
+        <import type="com.example.soccert.data.model.Coach" />
+
+        <variable
+            name="startingLineups"
+            type="List&lt;StartingLineup&gt;" />
+
+        <variable
+            name="substitutes"
+            type="List&lt;Substitute&gt;" />
+
+        <variable
+            name="coaches"
+            type="List&lt;Coach&gt;" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,6 +47,7 @@
             android:id="@+id/recyclerStartingLineups"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:data="@{startingLineups}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -50,6 +74,7 @@
             android:id="@+id/recyclerSubstitutes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:data="@{substitutes}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +82,7 @@
             app:spanCount="2" />
 
         <TextView
-            android:id="@+id/textCoach"
+            android:id="@+id/textCoaches"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"
@@ -75,10 +100,11 @@
             android:id="@+id/recyclerCoaches"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:data="@{coaches}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textCoach"
+            app:layout_constraintTop_toBottomOf="@+id/textCoaches"
             app:spanCount="2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
