@@ -1,13 +1,16 @@
 package com.example.soccert.data.model
 
+import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "Team")
+@Parcelize
 data class Team(
     @PrimaryKey
     @ColumnInfo(name = "team_key")
@@ -25,7 +28,7 @@ data class Team(
     @Ignore
     @SerializedName("players")
     val players: List<Player>?
-) {
+) : Parcelable {
 
     constructor(teamKey: String, teamName: String, teamBadge: String) : this(
         teamKey,
