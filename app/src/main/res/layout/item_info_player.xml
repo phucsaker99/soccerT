@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="player"
+            type="com.example.soccert.data.model.Player" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_1"
+        android:background="?attr/color_extra_background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineTileInfoPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/textPlayedMatch"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_total_match"
+            android:textColor="?attr/color_title_text"
+            android:text="@{player.playerMatchPlayed}"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textGoalScore"
+            app:layout_constraintStart_toEndOf="@+id/guidelineTileInfoPlayer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textGoalScore"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_goal"
+            android:textColor="?attr/color_title_text"
+            android:text="@{player.playerGoals}"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="@+id/textPlayedMatch"
+            app:layout_constraintEnd_toStartOf="@+id/textYellowCard"
+            app:layout_constraintStart_toEndOf="@+id/textPlayedMatch"
+            app:layout_constraintTop_toTopOf="@+id/textPlayedMatch" />
+
+        <TextView
+            android:id="@+id/textYellowCard"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:contentDescription="@null"
+            android:textColor="?attr/color_title_text"
+            android:text="@{player.playerYellowCards}"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="@+id/textGoalScore"
+            app:layout_constraintEnd_toStartOf="@+id/textRedCard"
+            app:layout_constraintStart_toEndOf="@+id/textGoalScore"
+            app:layout_constraintTop_toTopOf="@+id/textGoalScore" />
+
+        <TextView
+            android:id="@+id/textRedCard"
+            android:layout_width="@dimen/dp_16"
+            android:layout_height="@dimen/dp_16"
+            android:contentDescription="@null"
+            android:textColor="?attr/color_title_text"
+            android:text="@{player.playerRedCards}"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="@+id/textYellowCard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textYellowCard"
+            app:layout_constraintTop_toTopOf="@+id/textYellowCard" />
+
+        <TextView
+            android:id="@+id/textPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{player.playerNumber}"
+            android:textColor="?attr/color_title_text"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:ellipsize="end"
+            android:text="@{player.playerName}"
+            android:textColor="?attr/color_title_text"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

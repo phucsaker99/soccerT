@@ -14,6 +14,12 @@
     <string name="title_starting_lineup">Starting lineup</string>
     <string name="title_substitute">Substitute</string>
     <string name="title_coach">Coach</string>
+    <string name="title_goalkeeper">Goalkeeper</string>
+    <string name="title_name">Name</string>
+    <string name="title_number">Number</string>
+    <string name="title_defender">Defender</string>
+    <string name="title_midfielder">Midfielder</string>
+    <string name="title_forward">Forward</string>
 
     <string name="error_default">Error!</string>
     <string name="error_convert_type">Error convert data type!</string>
