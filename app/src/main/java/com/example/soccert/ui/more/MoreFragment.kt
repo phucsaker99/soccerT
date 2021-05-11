@@ -2,14 +2,21 @@ package com.example.soccert.ui.more
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.view.WindowManager
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.findNavController
 import com.example.soccert.R
 import com.example.soccert.base.BaseFragment
 import com.example.soccert.databinding.FragmentMoreBinding
 import com.example.soccert.ui.home.HomeViewModel
+import com.example.soccert.ui.main.MainViewModel
+import com.example.soccert.utils.LanguageConst
 import com.example.soccert.utils.checkTheme
+import kotlinx.android.synthetic.main.fragment_more.*
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class MoreFragment : BaseFragment<FragmentMoreBinding>() {
@@ -18,7 +25,16 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>() {
     override val viewModel by sharedViewModel<HomeViewModel>()
 
     override fun initViews() {
+        initToolbar()
         checkTheme()
+    }
+
+    private fun initToolbar() {
+        setHasOptionsMenu(true)
+        (activity as AppCompatActivity).apply {
+            setSupportActionBar(toolbarMore)
+            supportActionBar?.setDisplayShowTitleEnabled(false)
+        }
     }
 
     private fun checkTheme() {
@@ -44,6 +60,21 @@ class MoreFragment : BaseFragment<FragmentMoreBinding>() {
         }
 
         binding.switchChangeTheme.checkTheme()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_language, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_english -> activity?.getViewModel<MainViewModel>()
+                ?.setLanguage(LanguageConst.LANGUAGE_KEY_ENGLISH)
+            R.id.menu_vietnamese -> activity?.getViewModel<MainViewModel>()
+                ?.setLanguage(LanguageConst.LANGUAGE_KEY_VIETNAMESE)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun shareApp() {

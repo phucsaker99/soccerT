@@ -16,18 +16,25 @@ class RegionViewModel(
     private val _countries = MutableLiveData<List<Country>>()
     val countries: LiveData<List<Country>> get() = _countries
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     init {
         getCountries()
     }
 
     private fun getCountries() {
+        _isLoading.value = true
         soccerRepository.getCountries()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 _countries.value = it
+                _isLoading.value = false
             }, {
                 _error.value = it.message.toString()
+                _isLoading.value = false
             })
             .addTo(disposables)
     }

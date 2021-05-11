@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.favorite.FavoriteFragment" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="FavoriteVM"
+            type="com.example.soccert.ui.favorite.FavoriteTeamViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.searchview.SearchFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarFavoriteTeam"
+            style="@style/ThemeOverlay.MaterialComponents.ActionBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/color_header_footer_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_toolbar_favorite"
+            app:title="@string/title_favorites"
+            app:titleTextAppearance="@style/CustomTabText"
+            app:titleTextColor="?attr/color_title_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFavoriteTeam"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_4"
+            android:layoutAnimation="@anim/anim_layout"
+            app:data="@{FavoriteVM.teams}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarFavoriteTeam" />
+
+        <include
+            layout="@layout/include_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarFavoriteTeam"
+            app:loading="@{FavoriteVM.isLoading}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 

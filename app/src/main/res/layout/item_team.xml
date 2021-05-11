@@ -17,6 +17,7 @@
         android:layout_margin="@dimen/dp_4"
         android:orientation="vertical"
         android:padding="@dimen/dp_8"
+        app:cardBackgroundColor="?attr/color_background_team"
         app:cardCornerRadius="@dimen/dp_8"
         app:cardElevation="@dimen/dp_4">
 
@@ -31,6 +32,7 @@
                 android:layout_marginTop="@dimen/dp_8"
                 android:contentDescription="@null"
                 android:scaleType="fitXY"
+                android:transitionName="@{team.teamBadge}"
                 app:image="@{team.teamBadge}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +49,9 @@
                 android:gravity="center_horizontal"
                 android:lines="2"
                 android:text="@{team.teamName}"
+                android:textColor="?attr/color_team_text"
                 android:textSize="@dimen/sp_12"
+                android:transitionName="@{team.teamName}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/imageTeam"
                 app:layout_constraintStart_toStartOf="@+id/imageTeam"

@@ -1,6 +1,7 @@
 package com.example.soccert.di
 
 import com.example.soccert.BuildConfig
+import com.example.soccert.service.AlarmManagerService
 import com.example.soccert.utils.ApiConfig
 import com.example.soccert.utils.KoinConfig.SEARCH_CLIENT_NAME
 import com.example.soccert.utils.KoinConfig.SEARCH_RETROFIT_NAME

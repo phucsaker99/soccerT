@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.soccert.utils.PlayerType" />
+
+        <variable
+            name="TeamVM"
+            type="com.example.soccert.ui.detailteam.DetailTeamViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/color_header_footer_background"
+            tools:context=".ui.searchview.SearchFragment">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0.1"
+                android:background="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imageBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@android:color/transparent"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <ImageView
+                android:id="@+id/imageTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:contentDescription="@null"
+                app:image="@{TeamVM.team.teamBadge}"
+                android:transitionName="@{TeamVM.team.teamBadge}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="@android:color/transparent"
+                android:contentDescription="@null"
+                android:src="@{TeamVM.isFavorite() ? @drawable/ic_love : @drawable/ic_unlove}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:fontFamily="@font/archivo_black"
+                android:text="@{TeamVM.team.teamName}"
+                android:transitionName="@{TeamVM.team.teamName}"
+                android:textColor="?attr/color_title_text"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintEnd_toEndOf="@+id/imageTeam"
+                app:layout_constraintStart_toStartOf="@+id/imageTeam"
+                app:layout_constraintTop_toBottomOf="@+id/imageTeam" />
+
+            <View
+                android:id="@+id/viewDetailTeam"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@drawable/bg_radius_detail_team"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textCoaches"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/title_coach"
+                android:textColor="?attr/color_title_detail"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/viewDetailTeam"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toTopOf="@+id/viewDetailTeam" />
+
+            <TextView
+                android:id="@+id/textCoach2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_32"
+                android:layout_marginTop="@dimen/dp_8"
+                android:drawablePadding="@dimen/dp_8"
+                android:gravity="center"
+                android:textSize="@dimen/sp_12"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_coach"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toBottomOf="@+id/textCoach1"
+                app:textCheckContent="@{TeamVM.team.coaches[0].coachName}" />
+
+            <TextView
+                android:id="@+id/textCoach1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_32"
+                android:layout_marginTop="@dimen/dp_8"
+                android:drawablePadding="@dimen/dp_8"
+                android:gravity="center"
+                android:textSize="@dimen/sp_12"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_coach"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toBottomOf="@+id/textCoaches"
+                app:textCheckContent="@{TeamVM.team.coaches[1].coachName}" />
+
+            <TextView
+                android:id="@+id/textGoalkeeper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/title_goalkeeper"
+                android:textColor="?attr/color_title_detail"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/viewDetailTeam"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toBottomOf="@+id/textCoach2" />
+
+            <include
+                android:id="@+id/includeGoalkeeper"
+                layout="@layout/title_info_player"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textGoalkeeper" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerGoalkeepers"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:dataFilter="@{TeamVM.team.players}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/includeGoalkeeper"
+                app:layout_constraintStart_toStartOf="@id/includeGoalkeeper"
+                app:layout_constraintTop_toBottomOf="@+id/includeGoalkeeper"
+                app:playerType="@{PlayerType.Goalkeepers.toString()}" />
+
+            <TextView
+                android:id="@+id/textDefender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/title_defender"
+                android:textColor="?attr/color_title_detail"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/viewDetailTeam"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerGoalkeepers" />
+
+            <include
+                android:id="@+id/includeDefender"
+                layout="@layout/title_info_player"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDefender" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerDefenders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:dataFilter="@{TeamVM.team.players}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/includeDefender"
+                app:layout_constraintStart_toStartOf="@id/includeDefender"
+                app:layout_constraintTop_toBottomOf="@+id/includeDefender"
+                app:playerType="@{PlayerType.Defenders.toString()}" />
+
+            <TextView
+                android:id="@+id/textMidfielder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/title_midfielder"
+                android:textColor="?attr/color_title_detail"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/viewDetailTeam"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerDefenders" />
+
+            <include
+                android:id="@+id/includeMidfielder"
+                layout="@layout/title_info_player"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textMidfielder" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerMidfielders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:dataFilter="@{TeamVM.team.players}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/includeMidfielder"
+                app:layout_constraintStart_toStartOf="@id/includeMidfielder"
+                app:layout_constraintTop_toBottomOf="@+id/includeMidfielder"
+                app:playerType="@{PlayerType.Midfielders.toString()}" />
+
+            <TextView
+                android:id="@+id/textForward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/title_forward"
+                android:textColor="?attr/color_title_detail"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/viewDetailTeam"
+                app:layout_constraintStart_toStartOf="@id/viewDetailTeam"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerMidfielders" />
+
+            <include
+                android:id="@+id/includeForward"
+                layout="@layout/title_info_player"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textForward" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerForwards"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_8"
+                app:dataFilter="@{TeamVM.team.players}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/includeForward"
+                app:layout_constraintStart_toStartOf="@id/includeForward"
+                app:layout_constraintTop_toBottomOf="@+id/includeForward"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:playerType="@{PlayerType.Forwards.toString()}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>
+

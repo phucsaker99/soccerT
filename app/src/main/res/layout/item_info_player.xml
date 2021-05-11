@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,13 +9,11 @@
             type="com.example.soccert.data.model.Player" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp_1"
-        android:background="?attr/color_extra_background">
+        android:background="?attr/color_item_player">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineTileInfoPlayer"
@@ -93,7 +92,7 @@
 
         <TextView
             android:id="@+id/textName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_8"
             android:ellipsize="end"
@@ -101,6 +100,7 @@
             android:textColor="?attr/color_title_text"
             android:textSize="@dimen/sp_12"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textPlayedMatch"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="parent" />
 

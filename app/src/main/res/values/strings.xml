@@ -20,12 +20,16 @@
     <string name="title_defender">Defender</string>
     <string name="title_midfielder">Midfielder</string>
     <string name="title_forward">Forward</string>
+    <string name="title_notification">Notifications</string>
+    <string name="title_internet_notification">Notification</string>
+    <string name="title_alert">Alert!</string>
 
     <string name="error_default">Error!</string>
+    <string name="error_delete_notification">Error delete Notification!</string>
     <string name="error_convert_type">Error convert data type!</string>
 
-    <string name="text_from_event">from: </string>
-    <string name="text_to_event">to:</string>
+    <string name="text_from_event">"From: "</string>
+    <string name="text_to_event">To:</string>
     <string name="text_popular_leagues">Popular leagues</string>
     <string name="text_date_holder">%d-%d-%d</string>
     <string name="text_search">Search…</string>
@@ -45,4 +49,15 @@
     <string name="text_gd">GD</string>
     <string name="text_pts">Pts</string>
     <string name="text_season_20_21">Season 2020–2021</string>
+    
+    <string name="msg_notification_check_internet">Maybe! Do you not open the internet?</string>
+    <string name="msg_notification_delelete_or_no">Are you sure to delete the notification?</string>
+
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="title_vietnamese">Vietnam</string>
+    <string name="title_usa">Usa</string>
+    <string name="title_new_event">New Event !</string>
+    <string name="text_open_soccer"><![CDATA[Open SoccerT right now <3]]></string>
+    <string name="text_upcoming">Upcoming...</string>
 </resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_gradient_notification">
+
+    <ImageView
+        android:id="@+id/imageHomeNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/ic_calender" />
+
+    <ImageView
+        android:id="@+id/imageAwayNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dp_8"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/ic_calender" />
+
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_12"
+        android:layout_alignTop="@+id/imageHomeNotification"
+        android:layout_alignBottom="@+id/imageHomeNotification"
+        android:layout_toEndOf="@+id/imageHomeNotification"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/textAway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_12"
+        android:layout_alignTop="@+id/imageAwayNotification"
+        android:layout_alignBottom="@+id/imageAwayNotification"
+        android:layout_toStartOf="@+id/imageAwayNotification"
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textHome"
+        android:layout_alignBottom="@+id/textHome"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="@dimen/sp_12"
+        android:gravity="center"
+        android:layout_toStartOf="@+id/textAway"
+        android:layout_toEndOf="@+id/textHome"
+        android:text="@string/text_upcoming" />
+
+</RelativeLayout>

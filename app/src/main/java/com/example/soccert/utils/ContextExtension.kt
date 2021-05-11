@@ -1,7 +1,6 @@
 package com.example.soccert.utils
 
 import android.content.Context
-import android.widget.Toast
 import es.dmoral.toasty.Toasty
 
 const val Toast_LENGTH_DEFAULT = 1000

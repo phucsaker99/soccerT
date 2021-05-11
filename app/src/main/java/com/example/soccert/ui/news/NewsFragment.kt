@@ -1,8 +1,10 @@
 package com.example.soccert.ui.news
 
+import android.content.Context
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
@@ -65,7 +67,14 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
     }
 
     private fun itemSelectedNews(news: News) {
+        turnOffInputKeyboard()
         val action = NewsFragmentDirections.actionNewsFragmentToNewsWebFragment(news.url)
         findNavController().navigate(action)
+    }
+
+    private fun turnOffInputKeyboard() {
+        val keyboard =
+            activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        keyboard.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }

@@ -17,7 +17,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.home.matchevent.MatchEventFragment">
+            tools:context=".ui.home.matchevent.MatchEventFragment"
+            android:background="?attr/color_background_dark">
 
             <View
                 android:id="@+id/viewDate"
@@ -105,8 +106,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"
+                android:elevation="@dimen/dp_8"
                 app:data="@{homeVM.event}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewDate" />

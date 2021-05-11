@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_4"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textNewEvent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_blue_light"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/title_new_event" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/text_open_soccer" />
+</LinearLayout>

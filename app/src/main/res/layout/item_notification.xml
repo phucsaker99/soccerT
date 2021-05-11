@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="event"
+            type="com.example.soccert.data.model.Event" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:padding="@dimen/dp_4">
+
+        <ImageView
+            android:id="@+id/imageHomeTeam"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_8"
+            android:contentDescription="@null"
+            app:image="@{event.teamHomeBadge}"
+            app:layout_constraintEnd_toStartOf="@+id/guideVerticalEvent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_calender" />
+
+        <TextView
+            android:id="@+id/textHomeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="center_horizontal"
+            android:text="@{event.matchHomeTeamName}"
+            app:layout_constraintEnd_toEndOf="@+id/imageHomeTeam"
+            app:layout_constraintStart_toStartOf="@+id/imageHomeTeam"
+            app:layout_constraintTop_toBottomOf="@+id/imageHomeTeam"
+            tools:text="@tools:sample/lorem" />
+
+        <ImageView
+            android:id="@+id/imageAwayTeam"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_8"
+            android:contentDescription="@null"
+            app:image="@{event.teamAwayBadge}"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalNotification"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="@+id/guideVerticalEvent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_calender" />
+
+        <TextView
+            android:id="@+id/textAwayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@{event.matchAwayTeamName}"
+            app:layout_constraintEnd_toEndOf="@+id/imageAwayTeam"
+            app:layout_constraintStart_toStartOf="@+id/imageAwayTeam"
+            app:layout_constraintTop_toBottomOf="@+id/imageAwayTeam"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/textEventStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:gravity="center_horizontal"
+            android:text="@{event.matchDate + `\n` + event.matchTime}"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toStartOf="@+id/guideVerticalEvent"
+            app:layout_constraintStart_toStartOf="@+id/guideVerticalEvent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@{event.matchHomeTeamScore +` - `+ event.matchAwayTeamScore}"
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideVerticalEvent"
+            app:layout_constraintStart_toStartOf="@+id/guideVerticalEvent"
+            app:layout_constraintTop_toBottomOf="@+id/textEventStatus"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideVerticalEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <ImageButton
+            android:id="@+id/imageNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@android:color/transparent"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_notification"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:notificationDate="@{event.matchHomeTeamScore + event.matchAwayTeamScore}" />
+
+        <TextView
+            android:id="@+id/textHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHomeName"
+            app:layout_goneMarginTop="@dimen/dp_16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVerticalNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

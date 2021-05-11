@@ -71,21 +71,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             findNavController().navigate(action)
         }
 
-        binding.spinnerLeagues.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        binding.spinnerLeagues.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
 
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                viewModel.competition.observe(viewLifecycleOwner, Observer {
-                    imageCountry.loadImageRectangle(it[position].countryLogo)
-                    viewModel.setItemCompetition(it[position])
-                })
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    viewModel.competition.observe(viewLifecycleOwner, Observer {
+                        imageCountry.loadImageRectangle(it[position].countryLogo)
+                        viewModel.setItemCompetition(it[position])
+                    })
+                }
             }
-        }
     }
 
     companion object {

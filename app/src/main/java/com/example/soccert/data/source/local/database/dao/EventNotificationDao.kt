@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.core.Single
 
 @Dao
 interface EventNotificationDao {
-    @Query("Select * from EventNotification")
+    @Query("Select * from EventNotification Order by date(match_date) DESC")
     fun getEventNotifications(): Observable<List<Event>>
 
     @Query("SELECT * FROM EventNotification WHERE match_id =:matchID")

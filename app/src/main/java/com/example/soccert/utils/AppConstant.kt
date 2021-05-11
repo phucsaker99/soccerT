@@ -43,3 +43,14 @@ object SharePreferencesConst {
     const val LANGUAGE_ENGLISH = "en"
     const val PREFS_COMPETITION_KEY = "competition_key"
 }
+
+object AlarmConst{
+    const val EXTRA_SOCCER_ID = "EXTRA_SOCCER_ID"
+    const val EXTRA_OPEN_NOTIFICATION = "EXTRA_OPEN_NOTIFICATION"
+}
+
+object LanguageConst {
+    const val LANGUAGE_KEY = "language_key"
+    const val LANGUAGE_KEY_VIETNAMESE = "vi"
+    const val LANGUAGE_KEY_ENGLISH = "en"
+}
