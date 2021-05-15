@@ -23,7 +23,7 @@
             android:layout_marginTop="@dimen/dp_16"
             android:drawablePadding="@dimen/dp_8"
             android:text="@string/title_choose_country"
-            android:textSize="@dimen/sp_20"
+            android:textSize="@dimen/sp_16"
             android:textStyle="bold"
             app:drawableStartCompat="@drawable/ic_arrow_back"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +36,7 @@
             android:layout_marginStart="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_8"
             android:layout_marginEnd="@dimen/dp_16"
+            android:layoutAnimation="@anim/anim_layout"
             android:orientation="horizontal"
             app:data="@{regionVM.countries}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -57,7 +58,8 @@
             app:layout_constraintDimensionRatio="2:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerCountries">
+            app:layout_constraintTop_toBottomOf="@+id/recyclerCountries"
+            app:layout_goneMarginTop="200dp">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -75,10 +77,21 @@
                 android:fontFamily="@font/archivo_black"
                 android:text="@string/text_popular_leagues"
                 android:textColor="?attr/color_title_text"
-                android:textSize="@dimen/sp_26"
+                android:textSize="@dimen/sp_24"
                 android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
+
+        <include
+            layout="@layout/include_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layoutAnimation="@anim/anim_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loading="@{regionVM.isLoading}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

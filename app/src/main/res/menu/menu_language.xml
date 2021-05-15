@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_vietnamese"
+        android:icon="@drawable/vietnam_flag"
+        android:title="@string/title_vietnamese" />
+
+    <item
+        android:id="@+id/menu_english"
+        android:icon="@drawable/usa_flag"
+        android:title="@string/title_usa" />
+
+</menu>

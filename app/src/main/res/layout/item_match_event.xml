@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/imageHomeTeam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
             android:layout_marginStart="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_8"
             android:contentDescription="@null"
@@ -38,6 +38,8 @@
             android:layout_marginTop="@dimen/dp_8"
             android:gravity="center_horizontal"
             android:text="@{event.matchHomeTeamName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dp_8"
             app:layout_constraintEnd_toEndOf="@+id/imageHomeTeam"
             app:layout_constraintStart_toStartOf="@+id/imageHomeTeam"
             app:layout_constraintTop_toBottomOf="@+id/imageHomeTeam"
@@ -45,12 +47,13 @@
 
         <ImageView
             android:id="@+id/imageAwayTeam"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
             android:layout_marginTop="@dimen/dp_8"
             android:layout_marginEnd="@dimen/dp_16"
             android:contentDescription="@null"
             app:image="@{event.teamAwayBadge}"
+            android:transitionName="@{event.teamAwayBadge}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="@+id/guideVerticalEvent"
@@ -102,42 +105,29 @@
             app:layout_constraintGuide_percent="0.5" />
 
         <ImageButton
-            android:id="@+id/imageUnNotification"
+            android:id="@+id/imageEventNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_8"
             android:background="@android:color/transparent"
             android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/dp_8"
+            app:checkNotification="@{event.notification}"
             app:layout_constraintEnd_toStartOf="@+id/guideVerticalEvent"
             app:layout_constraintStart_toStartOf="@+id/guideVerticalEvent"
             app:layout_constraintTop_toBottomOf="@+id/textScore"
-            app:notificationStatus="@{event.matchStatus}"
-            app:srcCompat="@drawable/ic_no_notification" />
-
-        <ImageButton
-            android:id="@+id/imageNotification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_8"
-            android:background="@android:color/transparent"
-            android:contentDescription="@null"
-            android:visibility="gone"
-            app:layout_constraintEnd_toStartOf="@+id/guideVerticalEvent"
-            app:layout_constraintStart_toStartOf="@+id/guideVerticalEvent"
-            app:layout_constraintTop_toBottomOf="@+id/textScore"
-            app:srcCompat="@drawable/ic_notification" />
+            app:notificationStatus="@{event.matchStatus}" />
 
         <TextView
             android:id="@+id/textHorizontal"
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_1"
             android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_8"
             android:layout_marginEnd="@dimen/dp_16"
             android:background="@android:color/darker_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageUnNotification"
-            app:layout_goneMarginTop="@dimen/dp_16" />
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,6 +1,8 @@
 package com.example.soccert.ui.home.matchevent
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.view.View
 import com.example.soccert.R
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -10,14 +12,25 @@ import com.example.soccert.databinding.FragmentMatchEventBinding
 import com.example.soccert.ui.adapter.MatchEventAdapter
 import com.example.soccert.ui.home.HomeFragmentDirections
 import com.example.soccert.ui.home.HomeViewModel
+import com.example.soccert.utils.AlarmManagerUtil
+import com.example.soccert.utils.ToastType
+import com.example.soccert.utils.TranslateAnimationUtil
+import com.example.soccert.utils.showToast
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_match_event.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
 class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
     private val calendar = Calendar.getInstance()
-    private val adapterEvent = MatchEventAdapter(this::itemSelectedEvent)
+    private val adapterEvent =
+        MatchEventAdapter(
+            this::itemSelectedNotification,
+            this::itemSelectedEvent
+        )
 
     override val layoutResource get() = R.layout.fragment_match_event
     override val viewModel by sharedViewModel<HomeViewModel>()
@@ -35,6 +48,7 @@ class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
     }
 
     override fun initActions() {
+
         binding.imageFromDate.setOnClickListener {
             showDialogFromDate()
         }
@@ -51,6 +65,18 @@ class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
                 )
             }
         )
+
+        viewModel.isNotify.observe(this, Observer {
+            adapterEvent.notify(viewModel.matchID)
+        })
+
+        viewModel.deleteEvent.observe(this, Observer {
+            deleteEventNotification(it)
+        })
+
+        viewModel.addEvent.observe(this, Observer {
+            addEventNotification(it)
+        })
     }
 
     private fun initEventDate() {
@@ -104,8 +130,35 @@ class MatchEventFragment : BaseFragment<FragmentMatchEventBinding>() {
         }
     }
 
+    private fun addEventNotification(event: Event) {
+        try {
+            context?.let {
+                AlarmManagerUtil.create(
+                    it,
+                    event.matchID,
+                    System.currentTimeMillis()
+                )
+            }
+        } catch (e: Exception) {
+            context?.showToast(ToastType.Error, e.message.toString())
+        }
+    }
+
+    private fun deleteEventNotification(event: Event) {
+        context?.let { AlarmManagerUtil.cancel(it, event.matchID) }
+    }
+
+    private fun itemSelectedNotification(event: Event) {
+        if (event.isNotification) {
+            viewModel.deleteNotification(event)
+        } else {
+            viewModel.addNotification(event)
+        }
+    }
+
     private fun itemSelectedEvent(event: Event) {
-        val action = HomeFragmentDirections.actionHomeFragmentToDetailMatchFragment(event)
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToDetailMatchFragment(event.matchID.toInt())
         findNavController().navigate(action)
     }
 

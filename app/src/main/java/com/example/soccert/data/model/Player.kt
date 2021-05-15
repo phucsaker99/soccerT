@@ -1,7 +1,11 @@
 package com.example.soccert.data.model
 
+import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Player(
     @SerializedName("player_age")
     val playerAge: String,
@@ -23,4 +27,14 @@ data class Player(
     val playerType: String,
     @SerializedName("player_yellow_cards")
     val playerYellowCards: String
-)
+) : Parcelable {
+
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<Player>() {
+            override fun areItemsTheSame(oldItem: Player, newItem: Player) =
+                oldItem === newItem
+
+            override fun areContentsTheSame(oldItem: Player, newItem: Player) = oldItem == newItem
+        }
+    }
+}

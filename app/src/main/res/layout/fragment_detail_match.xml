@@ -6,12 +6,13 @@
     <data>
 
         <variable
-            name="event"
-            type="com.example.soccert.data.model.Event" />
+            name="DetailMatchVM"
+            type="com.example.soccert.ui.detailmatch.DetailMatchViewModel" />
 
     </data>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollDetailMatch"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -53,7 +54,8 @@
                 android:layout_marginStart="@dimen/dp_16"
                 android:layout_marginEnd="@dimen/dp_16"
                 android:elevation="@dimen/dp_4"
-                app:cardCornerRadius="@dimen/dp_8"
+                app:cardBackgroundColor="?attr/color_background_team"
+                app:cardCornerRadius="@dimen/dp_16"
                 app:cardElevation="@dimen/dp_2"
                 app:layout_constraintBottom_toBottomOf="@+id/viewPitch"
                 app:layout_constraintEnd_toEndOf="@+id/viewPitch"
@@ -71,7 +73,8 @@
                         android:layout_height="@dimen/dp_32"
                         android:layout_marginStart="@dimen/dp_8"
                         android:contentDescription="@null"
-                        app:image="@{event.teamHomeBadge}"
+                        android:transitionName="@{DetailMatchVM.event.teamHomeBadge}"
+                        app:image="@{DetailMatchVM.event.teamHomeBadge}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -84,8 +87,10 @@
                         android:layout_marginStart="@dimen/dp_8"
                         android:ellipsize="end"
                         android:gravity="start"
-                        android:text="@{event.matchHomeTeamName}"
+                        android:text="@{DetailMatchVM.event.matchHomeTeamName}"
+                        android:textColor="?attr/color_team_text"
                         android:textSize="@dimen/sp_12"
+                        android:transitionName="@{DetailMatchVM.event.matchHomeTeamName}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/textResult"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -97,7 +102,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dp_2"
-                        android:text="@{event.matchHomeTeamScore + ` - ` + event.matchAwayTeamScore}"
+                        android:text="@{DetailMatchVM.event.matchHomeTeamScore + ` - ` + DetailMatchVM.event.matchAwayTeamScore}"
+                        android:textColor="?attr/color_team_text"
                         android:textSize="@dimen/sp_12"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,8 +118,10 @@
                         android:layout_marginEnd="@dimen/dp_8"
                         android:ellipsize="end"
                         android:gravity="end"
-                        android:text="@{event.matchAwayTeamName}"
+                        android:text="@{DetailMatchVM.event.matchAwayTeamName}"
+                        android:textColor="?attr/color_team_text"
                         android:textSize="@dimen/sp_12"
+                        android:transitionName="@{DetailMatchVM.event.matchAwayTeamName}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/imageAwayTeam"
                         app:layout_constraintHorizontal_bias="1.0"
@@ -125,7 +133,8 @@
                         android:layout_width="@dimen/dp_32"
                         android:layout_height="@dimen/dp_32"
                         android:contentDescription="@null"
-                        app:image="@{event.teamAwayBadge}"
+                        android:transitionName="@{DetailMatchVM.event.teamAwayBadge}"
+                        app:image="@{DetailMatchVM.event.teamAwayBadge}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -142,7 +151,7 @@
                 android:layout_marginTop="@dimen/dp_16"
                 android:fontFamily="@font/archivo_black"
                 android:text="@string/title_statistics"
-                android:textColor="?attr/color_extra_background"
+                android:textColor="?attr/color_title_detail"
                 android:textSize="@dimen/sp_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -162,12 +171,13 @@
                 android:layout_marginStart="@dimen/dp_16"
                 android:layout_marginTop="@dimen/dp_8"
                 android:layout_marginEnd="@dimen/dp_16"
-                app:data="@{event.statistics}"
+                app:data="@{DetailMatchVM.event.statistics}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleStatistics"
+                app:touchState="@{true}"
                 tools:listitem="@layout/item_statistic" />
 
             <TextView
@@ -177,11 +187,43 @@
                 android:layout_marginTop="@dimen/dp_8"
                 android:fontFamily="@font/archivo_black"
                 android:text="@string/title_lineups"
-                android:textColor="?attr/color_extra_background"
+                android:textColor="?attr/color_title_detail"
                 android:textSize="@dimen/sp_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/recyclerStatistics" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewLineups"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textTitleLineups" />
+
+            <ImageView
+                android:id="@+id/imageChooseLogo"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_marginStart="@dimen/dp_8"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="@id/textTitleLineups"
+                app:layout_constraintStart_toEndOf="@id/textTitleLineups"
+                app:layout_constraintTop_toTopOf="@+id/textTitleLineups"
+                app:srcCompat="@drawable/ic_calender" />
+
+            <include
+                layout="@layout/include_loading"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visibility="@{DetailMatchVM.isLoading}" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

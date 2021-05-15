@@ -4,6 +4,13 @@
         <attr name="color_header_footer_background" format="color" />
         <attr name="color_selected_background" format="color" />
         <attr name="color_extra_background" format="color" />
-        <attr name="color_title_text" format="color"/>
+        <attr name="color_title_text" format="color" />
+        <attr name="color_background_dark" format="color" />
+        <attr name="color_team_text" format="color"/>
+        <attr name="color_text_new" format="color"/>
+        <attr name="color_title_info" format="color"/>
+        <attr name="color_background_team" format="color"/>
+        <attr name="color_title_detail" format="color"/>
+        <attr name="color_item_player" format="color"/>
     </declare-styleable>
 </resources>

@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="homeVM"
             type="com.example.soccert.ui.home.HomeViewModel" />
@@ -98,5 +100,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabHome" />
+
+        <include
+            layout="@layout/include_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:loading="@{homeVM.isLoading()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabHome" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

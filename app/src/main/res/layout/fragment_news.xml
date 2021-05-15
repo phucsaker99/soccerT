@@ -26,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_toolbar_news"
             app:title="@string/title_news"
+            app:titleTextAppearance="@style/CustomTabText"
             app:titleTextColor="?attr/color_title_text" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarNews" />
+
+        <include
+            layout="@layout/include_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:loading="@{NewsVM.isLoading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layoutAnimation="@anim/anim_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarNews" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

@@ -16,30 +16,40 @@ class NewsViewModel(
     private val _news = MutableLiveData<List<News>>()
     val news: LiveData<List<News>> get() = _news
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     init {
         getDefaultNews()
     }
 
     private fun getDefaultNews() {
+        _isLoading.value = true
         searchNewsRepository.searchNews(DEFAULT_NEWS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 _news.value = it
+                _isLoading.value = false
             }, {
                 _error.value = it.message.toString()
+                _isLoading.value = false
             }).addTo(disposables)
     }
 
     fun filterProduct(newsKey: String) {
         if (newsKey.isEmpty()) return
+        _isLoading.value = true
         searchNewsRepository.searchNews(newsKey)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 _news.value = it
+                _isLoading.value = false
             }, {
                 _error.value = it.message.toString()
+                _isLoading.value = false
             }).addTo(disposables)
     }
 

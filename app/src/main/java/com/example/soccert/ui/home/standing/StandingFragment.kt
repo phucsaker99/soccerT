@@ -14,8 +14,7 @@ class StandingFragment : BaseFragment<FragmentStandingBinding>() {
     override val layoutResource get() = R.layout.fragment_standing
     override val viewModel by sharedViewModel<HomeViewModel>()
 
-    override fun initViews() {
-    }
+    override fun initViews() {}
 
     override fun initData() {
         binding.apply {
@@ -25,11 +24,7 @@ class StandingFragment : BaseFragment<FragmentStandingBinding>() {
         }
     }
 
-    override fun initActions() {
+    override fun initActions() {}
 
-    }
-
-    private fun itemSelectedStanding(standing: Standing) {
-
-    }
+    private fun itemSelectedStanding(standing: Standing) {}
 }

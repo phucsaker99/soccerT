@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="loading"
+            type="Boolean" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/viewLoading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:visibility="@{loading}"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.9"
+        android:background="@android:color/white"
+        android:elevation="@dimen/dp_4" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        app:layout_constraintBottom_toBottomOf="@+id/viewLoading"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/viewLoading"
+        app:layout_constraintStart_toStartOf="@+id/viewLoading"
+        app:layout_constraintTop_toTopOf="@+id/viewLoading"
+        app:layout_constraintWidth_percent="0.3"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/football1"
+        app:visibility="@{loading}"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="@dimen/dp_8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

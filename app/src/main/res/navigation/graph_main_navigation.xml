@@ -8,7 +8,11 @@
         android:id="@+id/favoriteFragment"
         android:name="com.example.soccert.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailTeamFragment"
+            app:destination="@id/detailTeamFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.soccert.ui.home.HomeFragment"
@@ -24,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detailMatchFragment"
             app:destination="@id/detailMatchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailTeamFragment"
+            app:destination="@id/detailTeamFragment" />
     </fragment>
     <fragment
         android:id="@+id/moreFragment"
@@ -65,14 +72,30 @@
         android:id="@+id/notificationFragment"
         android:name="com.example.soccert.ui.notification.NotificationFragment"
         android:label="fragment_notification"
-        tools:layout="@layout/fragment_notification" />
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notificationFragment_to_detailMatchFragment"
+            app:destination="@id/detailMatchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailMatchFragment"
         android:name="com.example.soccert.ui.detailmatch.DetailMatchFragment"
         android:label="DetailMatchFragment"
         tools:layout="@layout/fragment_detail_match">
         <argument
-            android:name="event "
-            app:argType="com.example.soccert.data.model.Event" />
+            android:name="eventID"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailMatchFragment_to_detailTeamFragment"
+            app:destination="@id/detailTeamFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTeamFragment"
+        android:name="com.example.soccert.ui.detailteam.DetailTeamFragment"
+        android:label="DetailTeamFragment"
+        tools:layout="@layout/fragment_detail_team">
+        <argument
+            android:name="team"
+            app:argType="com.example.soccert.data.model.Team" />
     </fragment>
 </navigation>
