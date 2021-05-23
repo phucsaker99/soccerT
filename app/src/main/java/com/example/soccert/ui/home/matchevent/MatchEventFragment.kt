@@ -1,8 +1,7 @@
 package com.example.soccert.ui.home.matchevent
 
-import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.view.View
+import android.content.Intent
 import com.example.soccert.R
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -14,13 +13,9 @@ import com.example.soccert.ui.home.HomeFragmentDirections
 import com.example.soccert.ui.home.HomeViewModel
 import com.example.soccert.utils.AlarmManagerUtil
 import com.example.soccert.utils.ToastType
-import com.example.soccert.utils.TranslateAnimationUtil
 import com.example.soccert.utils.showToast
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_match_event.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 

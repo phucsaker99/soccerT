@@ -29,7 +29,7 @@
     <string name="text_to_event">Đến</string>
     <string name="text_popular_leagues">Giải đấu hàng đầu</string>
     <string name="text_date_holder">%d-%d-%d</string>
-    <string name="text_search">Tìm kiếm...</string>
+    <string name="text_search">Tìm kiếm…</string>
     <string name="text_share_app">Chia sẻ app</string>
     <string name="text_info_app">Thông tin ứng dụng</string>
     <string name="text_notification">Thông báo</string>
@@ -45,7 +45,7 @@
     <string name="text_l">L</string>
     <string name="text_gd">GD</string>
     <string name="text_pts">Pts</string>
-    <string name="text_season_20_21">Mùa 2020-2021</string>
+    <string name="text_season_20_21">Mùa 2020–2021</string>
     <string name="msg_notification_check_internet">Bạn cần mở internet để truy cập</string>
     <string name="msg_notification_delelete_or_no">Bạn có chắc chắn hủy thông báo này?</string>
     <string name="action_ok">Đồng ý</string>

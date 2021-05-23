@@ -10,11 +10,9 @@ import com.example.soccert.data.model.Standing
 import com.example.soccert.data.model.Team
 import com.example.soccert.data.repository.AppPreferencesRepository
 import com.example.soccert.data.repository.SoccerRepository
-import com.example.soccert.utils.AlarmManagerUtil
 import com.example.soccert.utils.ExceptionUtil
 import com.example.soccert.utils.PopularLeaguesUtil
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.kotlin.addTo
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
